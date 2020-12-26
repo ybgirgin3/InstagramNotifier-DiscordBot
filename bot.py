@@ -39,27 +39,27 @@ async def on_message(message):
         return
 
     if message.content == 'Mahmut':
-        response = 'onun ben amk'
+        response = 'Mahmut dedin'
         await message.channel.send(response)
 
 
     if message.content == 'Bilo':
-        response = 'Azgın Teke bilo'
+        response = 'Bilo dedin'
         await message.channel.send(response)
 
 
     if message.content == 'Berkay':
-        response = 'Abi yarrrrrağını yerim'
+        response = 'Kral adam berkay'
         await message.channel.send(response)
 
 
     if message.content == 'Kero':
-        response = 'Sinoplu Bela'
+        response = 'Kero dedin'
         await message.channel.send(response)
 
 
     if message.content == 'Alper':
-        response = 'Eskişehirin sikicisi'
+        response = 'Alper dedin'
         await message.channel.send(response)
 
 
