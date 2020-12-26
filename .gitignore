@@ -1,0 +1,4 @@
+inf.py
+*.swp
+__pycache__/
+.vscode/
