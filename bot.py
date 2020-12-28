@@ -2,20 +2,29 @@
 import os
 
 import discord
+from discord.ext import commands
+
+import asyncio
 
 
 # import credentials
 from inf import *
 
-import sys
+# post faker
+from fake_poster import post
 
+
+### how to make dc bot alive
+# link : https://www.freecodecamp.org/news/create-a-discord-bot-with-python/
+
+
+bot = commands.Bot(command_prefix='!')
 client = discord.Client()
-
-
 
 @client.event
 async def on_ready():
     #guild = discord.utils.find(lambda g: g.name == GUILD, client.guilds)
+    await client.change_presence(activity=discord.Game('with it\'s life trying to reach top speed of 1000 HP M5'))
     guild = discord.utils.get(client.guilds, name=GUILD)
 
     print(
@@ -32,38 +41,36 @@ async def on_ready():
 @client.event
 async def on_member_join(member):
     await member.create_dm()
-    await member.dm.channnel.send(
-            f'Hey!! {member.name} DC sunucuma hoşgeldin'
+    await member.dm.channel.send(
+            f'{member.name}, Welcome to ANTISPEEDBUMP BMW CREW Discord Server'
             )
+
 
 @client.event
 async def on_message(message):
-    if message.author == client.user:
-        return
-
-    if message.content == 'Mahmut':
-        response = 'Mahmut dedin'
-        await message.channel.send(response)
+    await message.channel.send('hooppp')
 
 
-    if message.content == 'Bilo':
-        response = 'Bilo dedin'
-        await message.channel.send(response)
 
 
-    if message.content == 'Berkay':
-        response = 'Kral adam berkay'
-        await message.channel.send(response)
+"""
+post = post()
+@client.event
+async def notifier(message, post):
+    # for antispeedbump
+    channel = client.get_channel('792385112062689320')
+    msg_sent = False
 
+    while True:
+        if post:
+            if not msg_sent:
+                await message.channel.send()
+                msg_sent = True
+            else:
+                msg_sent = False
 
-    if message.content == 'Kero':
-        response = 'Kero dedin'
-        await message.channel.send(response)
+    await asyncio.sleep(1)
+"""
 
-
-    if message.content == 'Alper':
-        response = 'Alper dedin'
-        await message.channel.send(response)
-
-
+#client.loop.create_task(notifier(message,post))
 client.run(TOKEN)
